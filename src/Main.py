@@ -3,7 +3,7 @@ from discord.ext import commands
 
 start_time = time.time()
 
-client = commands.Bot()
+client = commands.Bot(command_prefix=Config.PREFIX)
 
 
 @client.event
