@@ -1,6 +1,8 @@
 import time
 from discord.ext import commands
 
+from src.settings import Config
+
 start_time = time.time()
 
 client = commands.Bot(command_prefix=Config.PREFIX)
