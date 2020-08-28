@@ -1,6 +1,7 @@
 import time
 from discord.ext import commands
 
+from src.commands.CommandHandler import CommandHandler
 from src.settings import Config
 
 start_time = time.time()
@@ -16,12 +17,12 @@ async def on_ready():  # method that is called when bot is online
 
 
 @client.event
-async def on_message():  # method that is called whenever a message is sent into discord server
-    pass
+async def on_message(ctx):  # method that is called whenever a message is sent into discord server
+    await CommandHandler.handle_commands(client, ctx)
 
 
 def main():  # main function
-    client.run()
+    client.run(Config.BOT_TOKEN)
 
 
 if __name__ == '__main__':

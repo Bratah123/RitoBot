@@ -29,5 +29,5 @@ class Command:
             cmd_txt = "/".join(decorators['cmd']) if isinstance(decorators['cmd'], list) else decorators['cmd']
             reply += "{} - {}\n".format(cmd_txt, help_txt)
 
-        await txt_channel.write_msg(reply)
+        await txt_channel.send(reply)
         return True

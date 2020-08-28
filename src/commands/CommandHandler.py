@@ -7,10 +7,10 @@ from src.settings import Config
 class CommandHandler:
     @staticmethod
     async def handle_commands(client, message):
-        author = Member(message.author)
+        author = message.author
         msg = message.content
-        guild = Guild(message.guild)
-        txt_channel = TextChannel(message.channel)
+        guild = message.guild
+        txt_channel = message.channel
 
         if not str(msg).startswith(Config.PREFIX):
             return
@@ -31,4 +31,4 @@ class CommandHandler:
         guild = Guild(message.guild)
         txt_channel = TextChannel(message.channel)
 
-        await txt_channel.write_msg(str(stacktrace))
+        await txt_channel.send(str(stacktrace))
